@@ -1,0 +1,11 @@
+services:
+  nginx:
+    build: ./.nginx
+    ports:
+      - 8080:${NGINX_PORT}
+    volumes:
+      - ./frontend/dist:/var/www/html
+    networks:
+      - appnet
+    depends_on:
+      - frontend
